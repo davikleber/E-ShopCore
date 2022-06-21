@@ -1,0 +1,18 @@
+<div class="modal-header">
+  <h4 class="modal-title">Filtrar Produtos</h4>
+  <button type="button" class="btn-close" (click)="activeModal.dismiss()"></button>
+</div>
+<div class="modal-body">
+  <strong>Por Texto:</strong><input type="text" #searchBox id="searchbox" [(ngModel)]="tempFilter.name" /><br/>
+  <strong>Por Categoria:</strong>
+  <ul>
+      <li *ngFor="let cat of categories" style="list-style-type:none;">
+          <input type="checkbox" [(ngModel)]="cat.selected" id={{cat.name}} (change)="onChange()"/>
+          {{cat.name}}
+      </li>
+  </ul>
+</div>
+<div class="modal-footer">
+  <button type="button" id="update" class="btn btn-outline-dark" (click)="onFilterChanged()">Atualizar Filtro</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">Close</button>
+</div>
